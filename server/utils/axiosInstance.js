@@ -1,7 +1,7 @@
 const axios = require('axios');
 
-const gptApi = axios.create({
+const externalApi = axios.create({
   baseURL: 'https://api.example.com',
 });
 
-module.exports = gptApi;
+module.exports = externalApi;
