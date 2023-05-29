@@ -4,7 +4,7 @@ let api;
 
 if (process.env.NODE_ENV === 'production') {
   api = axios.create({
-    baseURL: 'https://course-gpt.herokuapp.com/api',
+    baseURL: 'https://XXX.herokuapp.com/api',
   });
 } else {
   api = axios.create({
