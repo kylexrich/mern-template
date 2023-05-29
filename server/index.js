@@ -5,25 +5,15 @@ const cors = require('cors');
 const connectToDB = require('./database/connectToDB');
 const path = require('path');
 const userRoutes = require("./routes/user");
-const messageRoutes = require("./routes/message");
-const qaPairRoutes = require("./routes/qaPair");
-const chatRoutes = require("./routes/chat");
-const feedbackRoutes = require("./routes/feedback");
-const courseRoutes = require("./routes/course");
-const schoolRoutes = require("./routes/school");
 
 start();
 
 function start() {
   const app = express();
-  const test = {
-    test2: "love"
-  }
   const port = process.env.PORT || 3001;
   setupExpress(app);
   setupRoutes(app);
   if (process.env.NODE_ENV === 'production') serveBuild(app);
-
   run(app, port);
 }
 
@@ -35,15 +25,6 @@ function setupExpress(app) {
 
 function setupRoutes(app) {
   app.use('/api/users', userRoutes);
-  app.use('/api/users/:userId/chats/:chatId/messages', messageRoutes);
-  app.use('/api/users/:userId/chats/:chatId/qaPairs', qaPairRoutes);
-  app.use('/api/users/:userId/chats', chatRoutes);
-  app.use(
-      '/api/users/:userId/chats/:chatId/messages/:messageId/feedbacks',
-      feedbackRoutes
-  );
-  app.use('/api/schools/:schoolId/courses', courseRoutes);
-  app.use('/api/schools', schoolRoutes);
 }
 
 function serveBuild(app) {
