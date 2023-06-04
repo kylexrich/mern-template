@@ -1,27 +1,19 @@
 import React from 'react';
 import './styles/App.css';
-import api from './api/axiosInstance';
 
+import './styles/App.css';
+import { Routes, Route } from 'react-router-dom';
+import Home from "./pages/Home";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
 function App() {
-  const callApi = () => {
-    api
-      .post('/users')
-      .then(response => {
-        const data = response.data;
-        alert(JSON.stringify(data));
-      })
-      .catch(error => {
-        console.error(error);
-      });
-  };
-
-  return (
-    <div className="App">
-      <header className="App-header">
-        <button onClick={callApi}>Call API</button>
-      </header>
-    </div>
-  );
+    return (
+        <Routes>
+            <Route path="/" element={ <Home/> }/>
+            <Route path="/login" element={ <Login/> }/>
+            <Route path="/register" element={ <Register/> }/>
+        </Routes>
+    );
 }
 
 export default App;

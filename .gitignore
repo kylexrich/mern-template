@@ -7,6 +7,7 @@
 # Ignore IDE specific files
 .idea/
 .vscode/
+*.swp
 
 # Ignore Mac system files
 .DS_Store
@@ -14,12 +15,25 @@
 # Ignore logs
 /logs
 *.log
+/server/hello.txt
+
+# Ignore runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Ignore typings
+typings/
 
 # Ignore npm cache directory
 /.npm
 
+# Ignore REPL history
+/.node_repl_history
+
 # Ignore production build files
-**/build
+/client/build
 
 # Ignore project .env files
 **/.env
